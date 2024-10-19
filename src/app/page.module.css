@@ -1,0 +1,217 @@
+.searchInput {
+  width: 100%;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.taskTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.taskTable th,
+.taskTable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  word-wrap: break-word;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.taskTable th {
+  background-color: #2385c7;
+  color: white;
+  font-weight: bold;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  position: relative;
+}
+
+.modalHeader {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.editForm label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.editForm input,
+.editForm select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.editForm input:focus,
+.editForm select:focus {
+  border-color: #2385c7;
+  outline: none;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 8px;
+  font-size: 0.9rem;
+  background-color: #2385c7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #1c4d6e;
+}
+
+.taskTable td:last-child {
+  width: 150px;
+  white-space: nowrap;
+}
+
+.high-priority {
+  background: linear-gradient(135deg, #ff4b80, #ff7b9d);
+  color: #fff;
+}
+
+.medium-priority {
+  background: linear-gradient(135deg, #ffb155, #ffcc7a);
+  color: #fff;
+}
+
+.low-priority {
+  background: linear-gradient(135deg, #3dcfab, #66e1d6);
+  color: #fff;
+}
+
+.completed {
+  background-color: #e6ffe6;
+  text-decoration: line-through;
+}
+
+@media (max-width: 1024px) {
+  .taskTable {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .taskTable thead {
+    display: none;
+  }
+
+  .taskTable tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .taskTable td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: none;
+    position: relative;
+    word-wrap: break-word;
+    white-space: normal;
+    font-size: 0.9rem;
+  }
+
+  .taskTable td:before {
+    content: attr(data-label);
+    flex-basis: 40%;
+    font-weight: bold;
+    color: #2385c7;
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+
+  .taskTable td:last-child {
+    border-bottom: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .taskTable td {
+    flex-direction: column;
+  }
+
+  .taskTable td:before {
+    flex-basis: auto;
+    margin-right: 0;
+  }
+
+  .taskTable td:last-child {
+    border-bottom: none;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .taskTable {
+    font-size: 0.8rem;
+  }
+
+  .taskTable td {
+    padding: 8px;
+  }
+
+  .taskTable td:before {
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .button {
+    padding: 1px;
+    font-size: 0.8rem;
+  }
+}
